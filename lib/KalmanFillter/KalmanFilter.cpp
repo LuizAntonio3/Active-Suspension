@@ -46,6 +46,10 @@ Matrix<KalmanFilter::systemOrder, 1> KalmanFilter::kalman(float input, float out
   return this->x_hat;
 };
 
+Matrix<KalmanFilter::systemOrder, 1> KalmanFilter::estimate(float input, float output){
+  return this->kalman(input, output);
+}
+
 float KalmanFilter::getPTrace(){
 
   float trace = this->P_hat(0) + this->P_hat(2);

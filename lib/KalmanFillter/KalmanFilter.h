@@ -34,7 +34,8 @@ class KalmanFilter{
     ~KalmanFilter();
     float getPTrace();
 
-    Matrix<systemOrder, 1> kalman(float input, float output);  
+    Matrix<systemOrder, 1> kalman(float input, float output);
+    Matrix<systemOrder, 1> estimate(float input, float output);
 };
 
 #endif

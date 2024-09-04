@@ -45,7 +45,6 @@ using namespace BLA;
 #define PLANETARY_REDUCTION 26.9
 #define PWM_DIVISION_FACTOR 1.255 // 1.2629629 // 1.27875
 
-
 // LOGIC RELATED VARIABLES
 unsigned long int k = 0;
 float controllerEnabled = 1;
@@ -216,7 +215,7 @@ void controlServo(void* parameters) {
   for(;;){ // infinite loop
     portMUX_TYPE myMutex = portMUX_INITIALIZER_UNLOCKED;
     taskENTER_CRITICAL(&myMutex);
-    singleLinkServo.update(encoderActuator.getPulsesDegresWithCorrection(), &kalmanFilter);
+    singleLinkServo.update(encoderActuator.getPulsesDegresWithCorrection(), &kalmanFilter); // fix this
     taskEXIT_CRITICAL(&myMutex);
     vTaskDelay(SAMPLING_TIME_SERVO / portTICK_PERIOD_MS);
   }
